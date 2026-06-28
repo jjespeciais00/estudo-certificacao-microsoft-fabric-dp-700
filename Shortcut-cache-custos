@@ -1,0 +1,37 @@
+cache do shortcut do onelake - custos
+
+CUSTOS - BRASIL SOUTH
+-----------------------------------
+conta que precisa fazer:
+
+Informações
+quanto cobra por egress o destino?
+armazenamento do onelake:
+CACHE: $0,40 GB/m
+HOT:  $0,0407 GB/m
+COOL: $0,0221 GB/m
+COLD: $0,0083 GB/m
+
+Conta sem cache:
+
+dados * leituras * egress_cost = X
+
+exemplo: 100gb no s3 que esta em outra regiao, cobrando uma taxa de saida de 0,09, e faria 5 leituras mensais.
+
+100 * 5 * 0,09 = $45
+
+Conta com cache:
+
+dados * leituras * egress_cost = X
+dados * 0,40 (custo de armazenamento do cache que ta na doc atualizada)
+
+mesmo exemplo:
+
+100 GB * 1 * 0,09 = $9
+100 GB * 0,40 = $40
+Total = $9 + $40 = $49
+
+
+nesse exemplo o cache so iria valer a pena (se consideiramos custo como prioridade) se fosse consultado mais vezes por mês.
+
+Outros beneficios do cache, voce nao depende da velocidade do destino, e ganha eficiencia.
