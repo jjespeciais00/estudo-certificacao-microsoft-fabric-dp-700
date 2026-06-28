@@ -1,0 +1,4 @@
+O OneLake storage report é uma alternativa que a microsoft implementou,porque os usuarios do fabric antes não conseguiam saber exatamente qual item
+estava consumindo determinada quantidade de armazenamento de forma simplificada,agora esse painel 
+acessado pelos admins do workspace relata exatamente essas informações.
+
