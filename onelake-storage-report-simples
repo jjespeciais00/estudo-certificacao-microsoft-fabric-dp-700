@@ -2,3 +2,16 @@ O OneLake storage report é uma alternativa que a microsoft implementou,porque o
 estava consumindo determinada quantidade de armazenamento de forma simplificada,agora esse painel 
 acessado pelos admins do workspace relata exatamente essas informações.
 
+Descrição: Veja o consumo de armazenamento deste espaço de trabalho para entender seus custos de armazenamento faturáveis ​​e identificar seus itens de maior valor.
+
+Seções:
+
+Total storage (O armazenamento total inclui todos os dados do usuário, dados do sistema e itens excluídos logicamente neste espaço de trabalho.)
+
+ 
+User data
+ 
+Soft-delete (Dados que foram excluídos dentro do período de retenção (geralmente 7 dias) e ainda são faturáveis.)
+ 
+System data (Os dados do sistema incluem metadados internos, registros e arquivos temporários que não são diretamente acessíveis, 
+mas contam para o uso de armazenamento.)
