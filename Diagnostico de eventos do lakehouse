@@ -1,0 +1,14 @@
+Adcionar diagnósticos de evento a um Lakehouse
+
+Esta opção pode ser ativada nas configurações de workspace -> OneLake -> General 
+
+A funcionalidade Salva os arquivos de log de quem, quando e como acessou o quê. Os logs são salvos em JSON pra um lakehouse que voce escolhe.
+
+Ele pega infs nos seguintes lugares "Ações do usuário na experiência web do Fabric
+Acesso programático via APIs, pipelines e mecanismos de análise.
+Atalhos entre espaços de trabalho, com eventos capturados do espaço de trabalho de origem."
+
+Pode deixar um lake pra pegar logs de varios workspace mas ele precisa estar na mesma capacity.
+
+Opção de deixar os logs imutaveis por determinada quantia de dias, ou seja os dados nao podem ser excluidos ou alterados durante o periodo que for definido 
+(IMPORTANTE: DEPOIS DE DEFINIR O PERIODO DE DIAS NAO DA PRA REDUZIR O PERIODO SO AUMENTAR) deixar imutável não aumenta o custo.
