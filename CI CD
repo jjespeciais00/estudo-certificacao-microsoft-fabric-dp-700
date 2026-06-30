@@ -27,3 +27,52 @@ Bom, usar esse metodo de CI/CD tem algumas vantagens como manter o processo no a
 existem algumas outras opções de CI/CD recomendadas pela MS como:
 
 ...
+---------------------------------------------------------------------------------
+pipelines de implementação
+
+passo a passo:
+
+
+Cria o pipeline de implementação, por padrao vem um template com "Development", "Test", "Production", apos criar voce associa workspace, so pode ser associado um workspace por etapa da pipeline.
+
+quando voce faz alguma modificação no workspace especifico voce pode fazer 3 tipos de deploy
+
+deploy seletivo: voce escolhe qual fazer deploy
+deploy completo: tudo é carregado
+
+voce pode fazer deploy pra uma seção anterior, como de hom pra dev.
+
+Uma opção interessante são as regras de implementação que servem em alguns casos especificos quando voce precisa de alterações especificas, um exemplo é quando voce usa uma conecção com os dados reais nas etapas de prod e test mas na dev voce usa dados de amostra que é uma pratica comum de segurança, voce precisa que o modelo semnatico x ou lakehouse y conecte com o banco real, voce define uma regra de implementação pra poder definir isso, assim apos fazer o deploy de dev com a coneção com dados de amostra a prod e test vai ficar com a conexão correta.
+
+As regras de implementação servem para:
+
+dataflow gen1 - regra de fonde de dados e regra de parametro
+modelo semantico - regra de fonde de dados e regra de parametro
+relatorio paginado - regra de fonte de dados
+banco de dados espelhado - regra de fonte de dados
+notebook - regra de lakehouse padrao
+
+as regras existente são: 
+
+Regra da fonte de dados
+Regra de parâmetro
+Regra de lakehouse padrao
+
+
+consideirações da MS:
+
+Esta seção lista as limitações das regras de implantação.
+
+Para criar uma regra de implantação, você precisa ser o proprietário do item para o qual está criando a regra.
+
+Não é possível criar regras de implantação na fase de desenvolvimento.
+
+Quando um item é removido ou excluído, suas regras também são excluídas. Essas regras não podem ser restauradas.
+
+Ao desatribuir e reatribuir um espaço de trabalho para restabelecer as conexões , as regras desse espaço de trabalho são perdidas. Para usar essas regras novamente, reconfigure-as.
+
+Se a fonte de dados ou o parâmetro definido em uma regra for alterado ou removido do item ao qual se refere no estágio de origem, a regra deixa de ser válida e a implantação falha.
+
+Depois de implantar um relatório paginado com uma regra de fonte de dados, você não poderá abrir o relatório usando o Construtor de Relatórios do Power BI .
+
+As regras de implantação só entram em vigor na próxima vez que você implantar nesse estágio. No entanto, se você criar regras e comparar os estágios antes da implantação, a comparação será feita com base nas regras criadas, mesmo que elas ainda não tenham entrado em vigor.
