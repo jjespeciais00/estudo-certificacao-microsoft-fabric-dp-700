@@ -1,0 +1,29 @@
+CI/CD
+
+Git/github:
+
+A integraçao com git serve pra separar ambientes e implementar mudanças sem afetar a produção, desenvolvedores atuam em um ambiente diferente, preferencialmente em um workspace proprio, quando integramos com um repositorio do github podemos conectar cada workspace a uma branch apenas, em um ambiente de desenvolvimentos conectamos o workspace de dev a uma branch isolada no mesmo repositório. Ou os devs clonam o repositorio e desenvolve local e depois sobe os commits na branch especifica pros devs. O fluxo em ambos casos é semelhante.
+
+ambiente dev ou local -> sobe na branch dev -> sobe na main(depois de validado)
+
+azure devops
+
+pipeline de implementação/deplyment pipeline:
+
+Pra editar precisa de permisão de administrador de pipeline, as permisões npos workspaces relacionados mudam a interação.
+
+o pipeline de implementação serve pra controlar o fluxo de CI/CD onde voce separa os workspaces do fluxo por categorias, por exemplo, Dev, Hom, Prod. Seria as fases de desenvolvimento onde os desenvolvedores vao atualizar os itens e codigos, implementar novas funcionalidade os qualquer alteração, depois subir as implementações pra Hom onde vai ser testada e validada pra depois subir pra Prod., tem algumas alternativas pra fazer essas mudanças que a microsoft recomenda.
+
+
+
+com pipeline de impletação o fluxo descrito como ideial pela MS seria uma junção de git/github (apenas ate o ambiente dev) e os fluxo do pipeline. a parte inial de dev local ou no workspace de dev commitar mudanças na branch de dev e depois subir pra main continua o mesmo a diferença é que a branch main faz um pull pra o workspace qo primeiro workspace do fluxo de implementação, o fluxo ficaria assim: 
+
+ambiente dev ou local -> sobe na branch dev -> sobe na main -> pull pro workspace1 (voltado pra dev) -> empurra pro workspace de test -> empurra pra produção.
+
+essas ações de PR sao ativadas de forma automatica ou manual a depender da configuração, quando optar por fazer a configuração fora da interface tem como configurar pipelines de lançamento pra mandar de dev pra test onde os testes automaticos ou manuais sao realizados apartir de scripts e assim por diante.
+
+Bom, usar esse metodo de CI/CD tem algumas vantagens como manter o processo no ambiente do fabric, ultilizar funcionalidades da pipeline de implementação como o historico de impletação, pra ter um controle mais rigoroso de quem aprova ou controla os mecanismos de aprovação de processo pois apenas administradores de pipelines podem edita-las/exclui-las e cria-las como descrito mais adiante.
+
+existem algumas outras opções de CI/CD recomendadas pela MS como:
+
+...
